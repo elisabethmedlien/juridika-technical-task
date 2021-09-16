@@ -1,0 +1,71 @@
+body {
+  font-size: 16px;
+}
+
+#root {
+  margin: 25px 45px;
+}
+
+h1 {
+  min-height: 5vh;
+}
+
+table {
+  min-height: 70vh;
+  border-collapse: unset;
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 0;
+  border-color: grey;
+}
+
+td {
+
+}
+
+.pagination {
+  min-height: 15px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  justify-content: center;
+}
+
+.pagination .active {
+  background-color: blue;
+}
+
+.pagination button:not(:first-of-type):not(:last-of-type) {
+  min-width: 45px;
+  min-height: 25px;
+}
+
+
+
+
+thead {
+  font-weight: 600;
+  background-color: rgba(0,0,0,0.5);
+  color:white;
+}
+
+td {
+  padding: 5px 15px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(0,0,0,0.2);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(0,0,0,0.08);
+}
+
+.avatar {
+  width: 25px;
+  border-radius: 50%;
+  height: 25px;
+  margin-right: 15px;
+}
