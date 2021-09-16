@@ -1,7 +1,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 body {
-  font-size: 16px;
+  font-size: 12px;
   margin: 0;
   background-color: #eaeaea;
 }
@@ -20,7 +20,6 @@ h1 {
 }
 
 table {
-  min-height: 75vh;
   width: 100%;
   border-collapse: unset;
   display: table;
@@ -37,6 +36,15 @@ table {
   margin: 25px 0;
 }
 
+.pagination button {
+  background: none;
+	color: inherit;
+	border: 1px solid black;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 .pagination .active {
   background-color: #00968863;
 }
@@ -46,8 +54,8 @@ table {
   min-height: 25px;
 }
 
-.pagination button:not(:first-of-type) {
-  border-left: none;
+.pagination button:not(:last-of-type) {
+  border-right: none;
 }
 
 .pagination button:hover {
@@ -56,11 +64,9 @@ table {
 
 .pagination button:disabled,
 button[disabled]{
-  border: 1px solid #999999;
-  border-right-color: rgba(0,0,0, 0.5);
   background-color: #cccccc;
   color: #666666;
-  cursor:default;
+  cursor: default;
 }
 
 thead {
