@@ -32,9 +32,9 @@ const Home = () => {
 
   const itemsPerPage = 20;
 
-  useEffect(() => { getApi<any>().then((res:any) => {
+  useEffect(() => { getApi().then(res => {
 
-    let data = res.items.map((e:any) => {
+    let data:Array <Repo> = res.items.map((e:any) => {
       return {
         name: e.name,
         id: e.id,

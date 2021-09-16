@@ -84,6 +84,10 @@ table.table-repos td {
   vertical-align: super;
 }  
 
+table.table-repos a:hover {
+  color: crimson;
+} 
+
 table.table-repos tr td:first-of-type {
   white-space: nowrap;
 }
