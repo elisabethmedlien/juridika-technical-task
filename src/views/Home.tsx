@@ -8,7 +8,7 @@ import TableRow from "../components/table/TableRow";
 import TableCell from "../components/table/TableCell";
 import Pagination from '../components/Pagination';
 import Title from '../components/Title';
-import Link from '../components/Link';
+import ExternalLink from '../components/ExternalLink';
 import Avatar from '../components/Avatar';
 import Icon from '../components/Icon';
 import TableBody from '../components/table/TableBody';
@@ -48,10 +48,7 @@ const Home = () => {
 
   }) },[])
 
-
   useEffect(() => setNumberOfPages(Math.ceil(data.length/itemsPerPage)),[data]);  // update number of pages on data state changes
-
-  console.log(data);
   
   let indexLast = currentPage * itemsPerPage;
   let indexFirst = indexLast - itemsPerPage;
@@ -65,7 +62,7 @@ const Home = () => {
 
       <Title title="Home page" />
 
-      <Table>
+      <Table cn="table-repos" >
         <TableHeader>
           <TableCell>Organization</TableCell>
           <TableCell>Rating</TableCell>
@@ -78,13 +75,13 @@ const Home = () => {
               <TableRow key={repo.id}>
                 <TableCell>
                   <Avatar path={repo.avatar} descr={`${repo.name} avatar`} />
-                  <Link path={repo.homepage}>{repo.name}</Link>
+                  <ExternalLink path={repo.homepage}>{repo.name}</ExternalLink>
                 </TableCell>
                 <TableCell>{repo.rating}</TableCell>
                 <TableCell>
-                  <Link path={repo.github_link}>
+                  <ExternalLink path={repo.github_link}>
                     <Icon cn="fab fa-github"/>
-                  </Link>
+                  </ExternalLink>
                 </TableCell>
                 <TableCell>{repo.description}</TableCell>
               </TableRow>

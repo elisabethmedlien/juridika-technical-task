@@ -1,6 +1,6 @@
 const Table = (props:any) => {
   return(
-    <table>
+    <table className={props.cn}>
       {props.children}
     </table>
   );

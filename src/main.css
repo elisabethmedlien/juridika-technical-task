@@ -1,28 +1,31 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 body {
   font-size: 16px;
+  margin: 0;
+  background-color: #eaeaea;
 }
 
-#root {
-  margin: 25px 45px;
+nav {
+  background-color: black;
+  padding: 15px 45px;
+}
+nav a {
+  text-decoration: none;
+  color: white;
 }
 
 h1 {
-  min-height: 5vh;
+  margin-left: 45px;
 }
 
 table {
-  min-height: 70vh;
+  min-height: 75vh;
+  width: 100%;
   border-collapse: unset;
   display: table;
-  border-collapse: separate;
-  box-sizing: border-box;
-  text-indent: initial;
   border-spacing: 0;
-  border-color: grey;
-}
-
-td {
-
+  padding: 0 45px;
 }
 
 .pagination {
@@ -31,10 +34,11 @@ td {
   grid-auto-flow: column;
   justify-items: center;
   justify-content: center;
+  margin: 25px 0;
 }
 
 .pagination .active {
-  background-color: blue;
+  background-color: #00968863;
 }
 
 .pagination button:not(:first-of-type):not(:last-of-type) {
@@ -42,12 +46,25 @@ td {
   min-height: 25px;
 }
 
+.pagination button:not(:first-of-type) {
+  border-left: none;
+}
 
+.pagination button:hover {
+  background-color:#03585063;
+}
 
+.pagination button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  border-right-color: rgba(0,0,0, 0.5);
+  background-color: #cccccc;
+  color: #666666;
+  cursor:default;
+}
 
 thead {
-  font-weight: 600;
-  background-color: rgba(0,0,0,0.5);
+  background-color: #009688;
   color:white;
 }
 
@@ -56,11 +73,27 @@ td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: rgba(0,0,0,0.2);
+  background-color: #84608b17;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: rgba(0,0,0,0.08);
+  background-color: none;
+}
+
+table.table-repos td {
+  vertical-align: super;
+}  
+
+table.table-repos tr td:first-of-type {
+  white-space: nowrap;
+}
+
+table.table-repos a {
+  color: #385765;
+}
+
+table.table-repos tbody tr td:last-of-type {
+  font-size: 0.8rem;
 }
 
 .avatar {
