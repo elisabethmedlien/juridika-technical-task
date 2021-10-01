@@ -1,10 +1,10 @@
 const Pagination = (props:any) => {
 
-  let { handleNextPage, handlePreviousPage, handleChangePage, currentPage, numberOfPages } = props;
+  let { handleChangePage, currentPage, numberOfPages } = props;
 
   return (
     <div className="pagination">
-      <button disabled={currentPage === 1} onClick={_ => handlePreviousPage()}>Previous Page</button>
+      <button disabled={currentPage === 1} onClick={_ => handleChangePage(currentPage - 1)}>Previous Page</button>
 
         {Array
         .from(Array(props.numberOfPages+1).keys())    // creates an array with n+1 indexes, and names them by index
@@ -19,7 +19,7 @@ const Pagination = (props:any) => {
           </button>
         )}
 
-      <button disabled={currentPage === numberOfPages} onClick={_ => handleNextPage()}>Next page</button>
+      <button disabled={currentPage === numberOfPages} onClick={_ => handleChangePage(currentPage + 1)}>Next page</button>
     </div>
   )
 };

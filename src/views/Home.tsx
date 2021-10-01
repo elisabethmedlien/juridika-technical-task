@@ -12,6 +12,7 @@ import ExternalLink from '../components/ExternalLink';
 import Avatar from '../components/Avatar';
 import Icon from '../components/Icon';
 import TableBody from '../components/table/TableBody';
+import { useLocation, useHistory } from "react-router-dom";
 
 type Repo = {
   name: string,
@@ -26,11 +27,20 @@ type Repo = {
 const Home = () => {
 
   const [data, setData ] = useState(Array <Repo>());
-
-  let [ currentPage, setCurrentPage ] = useState(1);
+  
   let [ numberOfPages, setNumberOfPages ] = useState(0);
 
   const itemsPerPage = 20;
+  let location = useLocation();
+  let history = useHistory();
+
+  let searchParams = new URLSearchParams(location.search);
+  let urlPage = searchParams.get('page');
+  let currentPage = 1;
+
+  if (urlPage !== null) {
+    currentPage = parseInt(urlPage);
+  }
 
   useEffect(() => { getApi().then(res => {
 
@@ -53,9 +63,11 @@ const Home = () => {
   let indexLast = currentPage * itemsPerPage;
   let indexFirst = indexLast - itemsPerPage;
 
-  let pageChange = (page:number) => setCurrentPage(page);
-  let nextPage = () => (currentPage !== numberOfPages ? setCurrentPage(currentPage + 1) : null);
-  let previousPage = () => (currentPage !== 1 ? setCurrentPage(currentPage - 1) : null);
+  let pageChange = (page:number) => {
+    if ( page > 0 && page <= numberOfPages ) {
+      history.push(`/?page=${page}`);
+    }
+  }
 
   return (
     <>
@@ -91,7 +103,7 @@ const Home = () => {
 
       </Table>
 
-      <Pagination handleChangePage={pageChange} handleNextPage={nextPage} handlePreviousPage={previousPage} currentPage={currentPage} numberOfPages={numberOfPages} />
+      <Pagination handleChangePage={pageChange} currentPage={currentPage} numberOfPages={numberOfPages} />
     
     </>
   );
